@@ -1,15 +1,9 @@
 #!/usr/bin/env ruby
 #
 #
-PROMPT_1 = ENV['PROMPT_1'] || 'Default prompt 1'
-PROMPT_2 = ENV['PROMPT_2'] || 'Default prompt 2'
-PROMPT_3 = ENV['PROMPT_3'] || 'Default prompt 3'
-SIGNATURE = ENV['SIGNATURE'] || 'Default signature prompt'
-
-
 require "./lib/greenbot.rb"
-tell PROMPT_1
-issue = note(PROMPT_2)
+tell ENV['PROMPT_1']
+issue = note(ENV['PROMPT_2'])
 if confirm("Would you like someone to contact you?")
   contact_me = true
   contact_me.remember("contact_me")
@@ -22,6 +16,5 @@ if confirm("Would you like someone to contact you?")
 else
   tell("No problem at all.")
 end
-tell PROMPT_3
-tell SIGNATURE
-
+tell ENV['PROMPT_3']
+tell ENV['SIGNATURE']

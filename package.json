@@ -1,6 +1,6 @@
 {
-  "name": "__package_name__",
-  "description":"__description__",
+  "name": "feedback-bot",
+  "description":"A bot to collect feedback such as customer complaints, potholes and such.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec ruby bot.rb",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "__git_repo_url__"
+    "url": "https://github.com/green-bot/feedback-bot"
   },
   "keywords": [
     "green-bot",
@@ -16,7 +16,7 @@
     "bot",
     "bashbot"
   ],
-  "author": "__author__",
+  "author": "Gordon DuQuesnay",
   "license": "MIT",
   "version": "0.1.0"
 }

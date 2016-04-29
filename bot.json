@@ -1,6 +1,6 @@
 [{
   "default_cmd": "npm start",
-  "default_path": ".\/node_modules\/__package_name__",
+  "default_path": "./node_modules/feedback-bot",
   "default_settings": [
    {
       "name": "PROMPT_1",
@@ -13,15 +13,20 @@
       "type": "text"
     },
     {
+      "name": "PROMPT_3",
+      "value": "Change me to change prompt 3",
+      "type": "text"
+    },
+    {
       "name": "SIGNATURE",
       "value": "Thank you, you can visit us on the web at http://www.green-bot.com",
       "type": "text"
     }
   ],
-  "desc": "__description__",
+  "desc": "A bot to collect feedback such as customer complaints, potholes and such.",
   "icon_class": "information",
-  "name": "__package_name__"
+  "name": "feedback-bot",
   "owner_cmd": "",
-  "short_desc": "__description__",
-  "repo_link": "__git_repo_url__"
+  "short_desc": "A bot to collect feedback such as customer complaints, potholes and such.",
+  "repo_link": "https://github.com/green-bot/feedback-bot"
 }]
