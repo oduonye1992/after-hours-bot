@@ -1,6 +1,6 @@
 {
   "name": "feedback-bot",
-  "description":"A bot to collect feedback such as customer complaints, potholes and such.",
+  "description": "A bot to collect feedback such as customer complaints, potholes and such.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec ruby bot.rb",
@@ -18,5 +18,5 @@
   ],
   "author": "Gordon DuQuesnay",
   "license": "MIT",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
