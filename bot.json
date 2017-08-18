@@ -42,6 +42,6 @@
   "icon_class": "information",
   "name": "emotional-bot",
   "owner_cmd": "",
-  "short_desc": "A bot to collect feedback such as customer complaints, potholes and such.",
+  "short_desc": "A bot that analyses a customer's emotional state.",
   "repo_link": "https://github.com/oduonye1992/emotional-bot"
 }]
