@@ -2,39 +2,39 @@
   "default_cmd": "npm start",
   "default_path": "./node_modules/feedback-bot",
   "default_settings": [
-   {
-      "name": "PROMPT_1",
-      "value": "Change me to change prompt 1",
+    {
+      "name": "ANALYSIS_THRESHOLD",
+      "value": "A comma separated list of emails to notify if the pattern is found",
+      "type": "text"
+    }
+    {
+      "name": "EMAILS",
+      "value": "A comma separated list of emails to notify if the pattern is found",
       "type": "text"
     },
     {
-      "name": "SAD_MESSAGE",
-      "value": "Change me - Message to send when the customer is sad",
+      "name": "MAIL_ADDRESS",
+      "value": "The SMTP mail address", 
       "type": "text"
     },
     {
-      "name": "JOY_MESSAGE",
-      "value": "Change me - Message to send when the customer is happy",
+      "name": "MAIL_PORT",
+      "value": "The SMTP port", 
       "type": "text"
     },
     {
-      "name": "DISGUST_MESSAGE",
-      "value": "Change me - Message to send when the customer is disgusted",
+      "name": "MAIL_USERNAME",
+      "value": "The SMTP username", 
       "type": "text"
     },
     {
-      "name": "ANGER_MESSAGE",
-      "value": "Change me - Message to send when the customer is angry",
+      "name": "MAIL_DOMAIN",
+      "value": "The SMTP mail domain", 
       "type": "text"
     },
     {
-      "name": "FEAR_MESSAGE",
-      "value": "Change me - Message to send when the customer is scared",
-      "type": "text"
-    },
-    {
-      "name": "SIGNATURE",
-      "value": "Thank you, you can visit us on the web at http://www.green-bot.com",
+      "name": "MAIL_PASSWORD",
+      "value": "The SMTP mail password", 
       "type": "text"
     }
   ],

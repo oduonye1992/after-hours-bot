@@ -6,6 +6,19 @@ require 'net/http'
 require 'json'
 require './lib/greenbot'
 
+require 'mail'
+
+Mail.defaults do
+  delivery_method :smtp, { :address   => ENV['MAIL_ADDRESS'],
+                           :port      => ENV['MAIL_PORT'],
+                           :user_name => ENV['MAIL_USERNAME'],
+                           :domain    => ENV['MAIL_DOMAIN'],
+                           :password  => ENV['MAIL_PASSWORD'], 
+                           :authentication => 'plain',
+                           :enable_starttls_auto => true }
+end
+
+
 def analyse_sentiment(text)
   url = URI("https://tone-analyzer-demo.mybluemix.net/api/tone")
 
@@ -18,22 +31,21 @@ def analyse_sentiment(text)
   request["cache-control"] = 'no-cache'
   request.body = "text=#{text}"
   response = http.request(request)
-  parse_response(response.read_body)
+  return parse_response(response.read_body)
 end
 
-def get_reply(tone)
-  response_map = Hash[
-      "sadness" => ENV['SAD_MESSAGE'] || "I really understand how you feel",
-      "joy" => ENV['JOY_MESSAGE'] || "Great, someone seems to be in a good mood",
-      "disgust" => ENV['DISGUST_MESSAGE'] || "I understand how frustrating this might seem",
-      "anger" => ENV['ANGER_MESSAGE'] || "Kindly be calm, we will resolve this I assure you",
-      "fear" => ENV['FEAR_MESSAGE'] || "It is not as bad as it seems. Everything will be alright",
-  ]
-  return response_map[tone]
+def angry?(messages)
+ tone = analyse_sentiment(messages)
+ if tone['tone_id'] == "anger"
+   return true
+ else 
+   return false
+ end
 end
 
 
 def parse_response(response)
+  puts response
   response = JSON.parse(response)
   emotional_state_index = 0
   emotional_tone_list = response['document_tone']['tone_categories'][emotional_state_index]['tones'];
@@ -45,16 +57,45 @@ def parse_response(response)
     end
     $i += 1
   end
+  return current_emotional_tone
+end
 
-  puts get_reply(current_emotional_tone['tone_id'])
+# puts get_reply(current_emotional_tone['tone_id'])
+
+
+#PROMPT_1 = ENV['PROMPT_1'] || "How can we help you today?"
+#issue = note(PROMPT_1)
+
+def send_notification(messages, email)
+  puts "Someone is angry"
+  email = EMAILS[0]
+  _from, _to = 'bot@green-bot.com', email
+
+  Mail.deliver do
+    to _to
+    from _from
+    subject 'The customer seems angry based on the messages bellow'
+    text_part do
+      body messages
+    end
+  end
 end
 
 
+#analyse_sentiment(issue)
+messages = ""
 
-PROMPT_1 = ENV['PROMPT_1'] || "How can we help you today?"
-issue = note(PROMPT_1)
+THRESHOLD = ENV['ANALYSIS_THRESHOLD'].to_i || 50
+EMAILS = ENV['EMAILS'].split(",")
+email = EMAILS[0]
 
-analyse_sentiment(issue)
-
-
+while true
+  message = gets
+  messages += message
+  if(messages.length >= THRESHOLD)
+    puts "message length now #{messages.length}"
+    send_notification(messages, email) if angry?(messages)
+    messages = ""
+  end
+end
 
