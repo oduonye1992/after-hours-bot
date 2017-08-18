@@ -8,13 +8,28 @@
       "type": "text"
     },
     {
-      "name": "PROMPT_2",
-      "value": "Change me to change prompt 2",
+      "name": "SAD_MESSAGE",
+      "value": "Change me - Message to send when the customer is sad",
       "type": "text"
     },
     {
-      "name": "PROMPT_3",
-      "value": "Change me to change prompt 3",
+      "name": "JOY_MESSAGE",
+      "value": "Change me - Message to send when the customer is happy",
+      "type": "text"
+    },
+    {
+      "name": "DISGUST_MESSAGE",
+      "value": "Change me - Message to send when the customer is disgusted",
+      "type": "text"
+    },
+    {
+      "name": "ANGER_MESSAGE",
+      "value": "Change me - Message to send when the customer is angry",
+      "type": "text"
+    },
+    {
+      "name": "FEAR_MESSAGE",
+      "value": "Change me - Message to send when the customer is scared",
       "type": "text"
     },
     {
@@ -25,8 +40,8 @@
   ],
   "desc": "A bot to collect feedback such as customer complaints, potholes and such.",
   "icon_class": "information",
-  "name": "feedback-bot",
+  "name": "emotional-bot",
   "owner_cmd": "",
   "short_desc": "A bot to collect feedback such as customer complaints, potholes and such.",
-  "repo_link": "https://github.com/green-bot/feedback-bot"
+  "repo_link": "https://github.com/oduonye1992/emotional-bot"
 }]
