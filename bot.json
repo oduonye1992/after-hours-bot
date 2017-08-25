@@ -1,47 +1,27 @@
 [{
   "default_cmd": "npm start",
-  "default_path": "./node_modules/feedback-bot",
+  "default_path": "./node_modules/after-hours-bot",
   "default_settings": [
     {
-      "name": "ANALYSIS_THRESHOLD",
-      "value": "A comma separated list of emails to notify if the pattern is found",
+      "name": "WEEKDAY_CLOSING_TIME",
+      "value": "e.g 17:00 or none - The time the office closes on the weekend. Use 'None' if no office hours on the weekend",
       "type": "text"
     }
     {
-      "name": "EMAILS",
-      "value": "A comma separated list of emails to notify if the pattern is found",
+      "name": "WEEKEND_CLOSING_TIME",
+      "value": "e.g 17:08 - The time the office closes during the weekdays", 
       "type": "text"
     },
     {
-      "name": "MAIL_ADDRESS",
-      "value": "The SMTP mail address", 
-      "type": "text"
-    },
-    {
-      "name": "MAIL_PORT",
-      "value": "The SMTP port", 
-      "type": "text"
-    },
-    {
-      "name": "MAIL_USERNAME",
-      "value": "The SMTP username", 
-      "type": "text"
-    },
-    {
-      "name": "MAIL_DOMAIN",
-      "value": "The SMTP mail domain", 
-      "type": "text"
-    },
-    {
-      "name": "MAIL_PASSWORD",
-      "value": "The SMTP mail password", 
+      "name": "OFFICE_CLOSED_COMMENT",
+      "value": "Message to display when the office is closed", 
       "type": "text"
     }
   ],
-  "desc": "A bot to collect feedback such as customer complaints, potholes and such.",
+  "desc":"An after-hours bot that announces that the office has closed", 
   "icon_class": "information",
-  "name": "emotional-bot",
+  "name": "after-hours-bot",
   "owner_cmd": "",
-  "short_desc": "A bot that analyses a customer's emotional state.",
-  "repo_link": "https://github.com/oduonye1992/emotional-bot"
+  "short_desc":"An after-hours bot that announces that the office has closed", 
+  "repo_link": "https://github.com/oduonye1992/after-hours-bot"
 }]
