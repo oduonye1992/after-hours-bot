@@ -13,6 +13,11 @@
       "type": "text"
     },
     {
+      "name": "OFFICE_TIMEZONE",
+      "value": "e.g +1:00 -  Current timezone relative to the UTC",
+      "type": "text"
+    },
+    {
       "name": "OFFICE_CLOSED_COMMENT",
       "value": "Message to display when the office is closed", 
       "type": "text"
