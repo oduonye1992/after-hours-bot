@@ -1,14 +1,10 @@
-
-
-A simple bot that analyses the emotional state of the customer 
+A simple bot that closes the session if the user's time is past or before the team's office hours
 
 ## Conversation Flow
 
 1. This bot starts when someone sends it a message. 
-2. The bot sends a greeting, should be something like "Welcome to the Barnstable DPW pot hole bot."
-3. The bot starts listening for messages. After every message, it asks for more. 
-4. Once the texter sends a single q, note taking mode will end.
-6. The bot will predicts the emotional state of the customer and responds with a corresponding text   
+2. The bot will check if the user send the message at the specified office hours
+3. If the current time isn't in the office hours range, the bot will send a customized message and close the session.   
 
   
 
