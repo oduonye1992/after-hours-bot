@@ -1,15 +1,24 @@
 [{
   "default_cmd": "npm start",
   "default_path": "./node_modules/after-hours-bot",
-  "default_settings": [
+  "default_settings": [{
+    "name": "WEEKDAY_START_TIME",
+    "value": "e.g 08:00 or none - The time the office begins during the weekdays",
+    "type": "text"
+  },
     {
       "name": "WEEKDAY_CLOSING_TIME",
+      "value": "e.g 08:00 or none - The time the office begins during the weekdays",
+      "type": "text"
+    },
+    {
+      "name": "WEEKEND_START_TIME",
       "value": "e.g 17:00 or none - The time the office closes on the weekend. Use 'None' if no office hours on the weekend",
       "type": "text"
-    }
+    },
     {
       "name": "WEEKEND_CLOSING_TIME",
-      "value": "e.g 17:08 - The time the office closes during the weekdays", 
+      "value": "e.g 17:00 or none - The time the office closes on the weekend. Use 'None' if no office hours on the weekend",
       "type": "text"
     },
     {
@@ -19,14 +28,14 @@
     },
     {
       "name": "OFFICE_CLOSED_COMMENT",
-      "value": "Message to display when the office is closed", 
+      "value": "Message to display when the office is closed",
       "type": "text"
     }
   ],
-  "desc":"An after-hours bot that announces that the office has closed", 
+  "desc": "An after-hours bot that announces that the office has closed",
   "icon_class": "information",
   "name": "after-hours-bot",
   "owner_cmd": "",
-  "short_desc":"An after-hours bot that announces that the office has closed", 
+  "short_desc": "An after-hours bot that announces that the office has closed",
   "repo_link": "https://github.com/oduonye1992/after-hours-bot"
 }]

@@ -6,7 +6,10 @@ require 'json'
 require './lib/greenbot'
 require 'date'
 
-WEEKDAY_CLOSING_TIME = ENV['WEEKDAY_CLOSING_TIME'] || "07:00"
+WEEKDAY_START_TIME = ENV['WEEKDAY_START_TIME'] || "21:00"
+WEEKDAY_CLOSING_TIME = ENV['WEEKDAY_CLOSING_TIME'] || "22:00"
+
+WEEKEND_START_TIME = ENV['WEEKEND_START_TIME'] || "15:00"
 WEEKEND_CLOSING_TIME = ENV['WEEKEND_CLOSING_TIME'] || "17:00"
 OFFICE_TIMEZONE = ENV['OFFICE_TIMEZONE'] || "+0:00"
 OFFICE_CLOSED_COMMENT = ENV['OFFICE_CLOSED_COMMENT'] || "Sorry, We are closed for the day"
@@ -34,7 +37,7 @@ def getFormattedTimeWithTimezone(time, timezone)
     return operation == "+" ? time + timezone : time - timezone
 end
 
-def isAfterWorkHours()
+def isTeamWorkHours()
     if (!isWeekday())
         tmpStr = WEEKEND_CLOSING_TIME.downcase
         if (tmpStr === NO_WEEKEND_HOURS)
@@ -42,12 +45,17 @@ def isAfterWorkHours()
         end
     end
     currentTime = getFormattedTime(Time.now.utc.strftime("%H:%M"))
-    officeTime = isWeekday() ? WEEKDAY_CLOSING_TIME : WEEKEND_CLOSING_TIME;
-    officeClosingTime = getFormattedTimeWithTimezone(officeTime, OFFICE_TIMEZONE)
-    return currentTime > officeClosingTime
+
+    _officeStartTime = isWeekday() ? WEEKDAY_START_TIME : WEEKEND_START_TIME;
+    officeStartTime = getFormattedTimeWithTimezone(_officeStartTime, OFFICE_TIMEZONE)
+
+    officeCloseTime = isWeekday() ? WEEKDAY_CLOSING_TIME : WEEKEND_CLOSING_TIME;
+    officeClosingTime = getFormattedTimeWithTimezone(officeCloseTime, OFFICE_TIMEZONE)
+    return currentTime < officeClosingTime && currentTime > officeStartTime
 end
 
-if (isAfterWorkHours())
+if (!isTeamWorkHours())
      puts OFFICE_CLOSED_COMMENT
+     puts "{{end_session}}"
 end
 
