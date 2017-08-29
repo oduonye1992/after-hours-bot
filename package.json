@@ -1,6 +1,6 @@
 {
-  "name": "emotional-bot",
-  "description": "A bot that analyses a customers emotional state",
+  "name": "after-hours-bot",
+  "description": "An after-hours bot that announces that the office has closed",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec ruby bot.rb",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oduonye1992/emotional-bot"
+    "url": "https://github.com/oduonye1992/after-hours-bot"
   },
   "keywords": [
-    "emotional-bot",
+    "after-hours-bot",
     "greenbot",
     "bot",
     "bashbot"
   ],
   "author": "Gordon DuQuesnay, Daniel Oduonye",
   "license": "MIT",
-  "version": "0.0.5"
+  "version": "0.0.6"
 }
