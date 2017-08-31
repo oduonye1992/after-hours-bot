@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 #
 #
-require 'uri'
-require 'json'
+#require 'uri'
+#require 'json'
 require './lib/greenbot'
-require 'date'
+#require 'date'
 
 #WEEKDAY_START_TIME = ENV['WEEKDAY_START_TIME'] || "21:00"
 #WEEKDAY_CLOSING_TIME = ENV['WEEKDAY_CLOSING_TIME'] || "22:00"
@@ -58,5 +58,5 @@ require 'date'
      #puts OFFICE_CLOSED_COMMENT
      #puts "{{end_session}}"
 #end*/
-put "{{end_session}}"
+puts "{{end_session}}"
 
